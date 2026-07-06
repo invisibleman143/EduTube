@@ -635,10 +635,8 @@ export const StudentPanel: React.FC<StudentPanelProps> = ({
           </div>
 
           <div className="workspace-layout">
-            {/* Left Side: Video Player & Tabs */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {/* Video Player */}
-              <div className="glass-panel" style={{ overflow: 'hidden', position: 'relative', borderRadius: '16px' }}>
+            {/* Video Player */}
+            <div className="workspace-video glass-panel" style={{ overflow: 'hidden', position: 'relative', borderRadius: '16px' }}>
                 {activeLecture ? (
                   <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', backgroundColor: '#000' }}>
                     {activeLecture.videoUrl.includes('youtube.com') || activeLecture.videoUrl.includes('youtu.be') ? (
@@ -684,7 +682,7 @@ export const StudentPanel: React.FC<StudentPanelProps> = ({
               </div>
 
               {/* Workspace Navigation Tabs (Info, Q&A, Reviews) */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="workspace-tabs glass-panel" style={{ padding: '1.5rem' }}>
                 <div className="tab-nav" style={{ width: 'fit-content', marginBottom: '1.5rem' }}>
                   <button className={`tab-btn ${lectureTab === 'info' ? 'active' : ''}`} onClick={() => setLectureTab('info')}>About Course</button>
                   <button className={`tab-btn ${lectureTab === 'qa' ? 'active' : ''}`} onClick={() => setLectureTab('qa')}>Q&A Forum ({questions.filter(q => q.courseId === selectedCourse.id).length})</button>
@@ -870,10 +868,9 @@ export const StudentPanel: React.FC<StudentPanelProps> = ({
                   </div>
                 )}
               </div>
-            </div>
 
             {/* Right Side: Sidebar - Curriculum Lectures */}
-            <div className="glass-panel" style={{ padding: '1.25rem', position: 'sticky', top: '90px' }}>
+            <div className="workspace-sidebar glass-panel" style={{ padding: '1.25rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                 <h3 style={{ fontSize: '1.1rem' }}>Course Curriculum</h3>
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
